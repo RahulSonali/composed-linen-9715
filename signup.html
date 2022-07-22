@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+    <style>
+       
+        .logo{
+            width: 10%;
+            margin: auto;
+        }
+        .logo img{
+            object-fit: cover;
+        }
+        h1{
+            text-align: center;
+        }
+        .container{
+            width: 430px;
+            background-color: black;
+            /* border: 2px solid black; */
+            padding: 17px 36px;
+            margin: auto;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            border-radius: 10px;
+        }
+        .container input{
+            width: 95%;
+            display: block;
+            margin-bottom: 10px;
+            padding: 10px 12px;
+            font-size: 20px;
+            border-radius: 5px;
+            border: 1px solid rgb(206, 206, 206);
+            /* outline: none; */
+        }
+        input::placeholder{
+            font-size: 14px;
+            color: rgb(201, 201, 201);
+        }
+        .container label{
+            text-transform: capitalize;
+            font-family: sans-serif;
+            display: block;
+            margin-bottom:-10px;
+        }
+        .container p{
+            text-align: center;
+            font-size: 13px;
+            color: rgb(182, 182, 182);
+            margin: 27px 0px ;
+        }
+        .container p a{
+            color: rgb(37,99,235);
+        }
+        h3{
+            text-align: center;
+            color: gray;
+        }
+        h3 a{
+            color: rgb(37,99,235);
+        }
+        .container input[type='submit']{
+            background-color: rgb(37,99,235);
+            margin-top: 10px;
+            color: white;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .nav{
+          display: flex;
+          justify-content: space-between;
+          padding: 16px 12px;
+          background-color: rgb(28,41,56);
+          color: white;
+          /* border-radius: 20px; */
+          font-family: sans-serif;
+      }
+      .menus ul{
+          display: flex;
+
+      }
+      .menus ul li{
+          list-style-type: none;
+          color: white;
+          font-size: 20px;
+          margin-left: 30px;
+          text-transform: capitalize;
+          font-family: sans-serif;
+      }
+     .menus ul li a{
+          color: white;
+          text-decoration: none;
+          /* lds  */
+      }
+    </style>
+</head>
+<body>
+    
+    <div class="logo" style="margin-left:47% ;"> 
+        <img style="width:60% ; margin-bottom:0% ;" src="https://static.cure.fit/assets/images/loader-v2.gif" alt="">
+   </div>
+    <div class="container">
+        <h2 style="color: white; text-align: center;">cult.fit</h2>
+        <h1  style="color: white;">Sign Up</h1>
+        <form action="login.html">
+        <label for="name">Full Name</label>
+        <br>
+        <input type="text" name="name" id="name" placeholder="Enter Your Name" required>
+        <br>
+        <label for="email">Email</label>
+        <br>
+        <input type="email" name="email" id="email" placeholder="Enter Your Email" required>
+        <br>
+        <label for="password">Password</label>
+        <br>
+        <input type="password" name="password" id="pasword" placeholder="Enter Your Password" required>
+        <div>
+            <p>By signing up , I accpet the cult.fit <a href="/">Terms of Service</a> and acknowledge the <a href="/">Privacy Pollicy </a></p>
+        </div>
+
+        <input type="submit" value="Sign Up" id="submit">
+        </form>
+        <h3>Already Have an account <a href="/"> Sign</a></h3>
+    </div>
+<script>
+    document.querySelector("form").addEventListener("submit",myfun)
+    var newarr = JSON.parse(localStorage.getItem("details")) || []
+    function myfun(){
+    event.preventDefault()
+    let obj={
+    name:document.querySelector("#name").value ,
+    email:document.querySelector("#email").value ,
+    pass :document.querySelector("#pasword").value 
+    
+    }
+    
+    newarr.push(obj)
+    localStorage.setItem("details",JSON.stringify(newarr))
+    window.location.href='login.html'
+    }
+       
+</script>
+    
+</body>
+</html>
